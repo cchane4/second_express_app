@@ -9,16 +9,14 @@ app.get("/", (req, res) => {
 /* making a conditional route */
 app.get("/speak/:animal", (req, res) => { 
     let animal = req.params.animal; 
-    let sound = ""; 
-    if (animal === "pig"){ 
-       sound = "oink"; 
-    } else if (animal === "cow"){ 
-        sound = "moo"; 
-    } else if (animal === "dog"){ 
-        sound = "woof"; 
+    let sounds = { 
+        pig: "oink", 
+        cow: "moo", 
+        dog: "woof"
     }
+    let sound = sounds[animal];
     res.send("The " + req.params.animal + " says " + sound);   
-});
+}); 
 
 
 
